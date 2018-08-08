@@ -3,7 +3,7 @@
 
 > This provides you with a reproducible pattern that you can carry out in your web applications along with a copy pasteable starting point so you don’t need to repeat these steps again and again.
 
-* We start off with a simple react typecript application that shows a checkbox with an on label and an off label
+* We start off with a simple existing react typescript application that shows a checkbox with an on label and an off label
 
 ```js
 import * as React from 'react';
