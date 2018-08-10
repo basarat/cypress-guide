@@ -6,3 +6,5 @@
 * Inspect snapshot with chorme-dev-tools 
 * Use "select an element" toold in chrome-dev-tools.
 * Click a snapshot to pin it
+
+## Mock Network requests and responses 
