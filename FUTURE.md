@@ -11,5 +11,9 @@
 
 ## Debugging 
 * Open devtools 
-* Debug command: https://docs.cypress.io/api/commands/debug.html# 
-* `.then(()=> debugger)`
+
+Two ways 
+* `debugger` statement in application code
+* Debugging test code
+  * Debug command: https://docs.cypress.io/api/commands/debug.html# 
+  * `.then(()=> debugger)`
