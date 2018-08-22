@@ -8,3 +8,8 @@
 * Click a snapshot to pin it
 
 ## Mock Network requests and responses 
+
+## Debugging 
+* Open devtools 
+* Debug command: https://docs.cypress.io/api/commands/debug.html# 
+* `.then(()=> debugger)`
