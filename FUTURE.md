@@ -9,7 +9,7 @@
 
 ## Mock Network requests and responses 
 
-## Debugging 
+## Breakpoints
 * Open devtools 
 
 Two ways 
