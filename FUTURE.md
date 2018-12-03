@@ -9,6 +9,9 @@
 
 ## Mock Network requests and responses 
 
+## Test MobX application state 
+https://github.com/basarat/typescript-book/issues/441 
+
 ## Breakpoints
 * Open devtools 
 
