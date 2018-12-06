@@ -1,3 +1,5 @@
+import { TodosState } from "./todosState";
+
 class AppState {
   todos = new TodosState()
 }

@@ -8,5 +8,5 @@ export type TodoItem = {
 
 export class TodosState {
   @observable
-  items: TodoItem[] = []
+  items: TodoItem[] = [];
 }
