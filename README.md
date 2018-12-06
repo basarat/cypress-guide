@@ -4,11 +4,15 @@
 Docs / Code to an accompanying video course on cypress web application testing.
 
 ## Setup 
-cd into a lesson folder and then:
+Setup the `webapp`: 
+* cd webapp
 * `npm install`
-* `cd e2e` 
+* `npm start`
+
+For any lesson:
+* cd `01` (e.g)
 * `npm install`
-* `npm run cypress:open`
+* `npm start`
 
 ## Course 
 * https://egghead.io/courses/maintainable-web-application-testing-with-cypress
