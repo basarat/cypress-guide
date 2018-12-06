@@ -1,10 +1,12 @@
+import { observable } from 'mobx';
 
 export type TodoItem = {
-  id: string, 
-  completed: boolean, 
+  id: string,
+  completed: boolean,
   message: string,
 }
 
 export class TodosState {
-  items: 
+  @observable
+  items: TodoItem[] = []
 }
