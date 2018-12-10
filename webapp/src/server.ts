@@ -3,11 +3,6 @@ import low from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
 
 /** 
- * Setup server 
- */
-const app = express();
-
-/** 
  * Setup db 
  */
 const adapter = new FileSync('db.json')
@@ -19,10 +14,14 @@ db.defaults({ todos: [] })
 /** 
  * API server 
  */
-app.use('/api', express.json());
-app.get('/api/all', (_, res) => {
+const app = express();
+const api = express.Router();
+
+api.get('/all', (_, res) => {
   res.send({ todos: db.get('todos') });
-})
+});
+
+app.use('/api', api);
 
 /** Start */
 app.listen(3000, '0.0.0.0');
