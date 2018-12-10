@@ -12,8 +12,8 @@
     "build:server": "tsc -p ./server.tsconfig.json",
     "build": "npm run build:webpack && npm run build:server",
     "start:webpack": "webpack-dev-server -d --content-base ./public",
-    "start:server": "ts-node src/main.ts",
-    "start": "npm run start:webpack & npm run start:server"
+    "start:server": "ts-node-dev src/server.ts",
+    "start": "concurrently \"npm run start:webpack\" \"npm run start:server\""
   },
   "dependencies": {
     "@types/express": "4.16.0",
@@ -21,6 +21,7 @@
     "@types/react-dom": "16.0.11",
     "axios": "0.18.0",
     "clean-webpack-plugin": "1.0.0",
+    "concurrently": "4.1.0",
     "csstips": "0.3.0",
     "formstate": "1.0.2",
     "html-webpack-plugin": "3.2.0",
@@ -30,7 +31,7 @@
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "ts-loader": "5.3.1",
-    "ts-node": "7.0.1",
+    "ts-node-dev": "1.0.0-pre.31",
     "typescript": "3.2.1",
     "typestyle": "2.0.1",
     "webpack": "4.27.1",

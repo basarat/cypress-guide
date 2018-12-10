@@ -12,23 +12,25 @@ And visit `http://localhost:8080`
 Guidance on depdendencies: 
 * Transpiler:
   * typescript
-* Frontend Dev:
+* Dev Frontend:
   * webpack 
   * webpack-dev-server
   * ts-loader
   * html-webpack-plugin
   * clean-webpack-plugin
-* Backend Dev: 
-  * ts-node 
-* For frontend execution: 
+* Dev Backend: 
+  * ts-node-dev
+* Dev both: 
+  * concurrently
+* Exec frontend: 
   * react 
   * react-dom 
   * mobx 
   * mobx-react 
   * typestyle
   * csstips
-* For backend execution: 
+* Exec backend: 
   * express 
   * lowdb
-* For both Frontend and Backend execution: 
+* Exec both: 
   * axios 
