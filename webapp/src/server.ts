@@ -20,3 +20,6 @@ db.defaults({ todos: [] })
  * API server 
  */
 app.use(express.json());
+
+/** Start */
+app.listen(3000, '0.0.0.0');
