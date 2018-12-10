@@ -8,8 +8,12 @@
   },
   "scripts": {
     "clean": "rm -rf ./node_modules package-lock.json && npm install",
-    "build": "webpack -p",
-    "start": "webpack-dev-server -d --content-base ./public"
+    "build:webpack": "webpack -p",
+    "build:server": "tsc -p ./server.tsconfig.json",
+    "build": "npm run build:webpack && npm run build:server",
+    "start:webpack": "webpack-dev-server -d --content-base ./public",
+    "start:server": "ts-node src/main.ts",
+    "start": "npm run start:webpack & npm run start:server"
   },
   "dependencies": {
     "@types/express": "4.16.0",
