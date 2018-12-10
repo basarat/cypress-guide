@@ -14,6 +14,7 @@
   "dependencies": {
     "@types/react": "16.7.13",
     "@types/react-dom": "16.0.11",
+    "axios": "0.18.0",
     "clean-webpack-plugin": "1.0.0",
     "csstips": "0.3.0",
     "formstate": "1.0.2",
