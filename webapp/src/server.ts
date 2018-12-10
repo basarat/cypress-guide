@@ -19,7 +19,10 @@ db.defaults({ todos: [] })
 /** 
  * API server 
  */
-app.use(express.json());
+app.use('/api', express.json());
+app.get('/api/all', (_, res) => {
+  res.send({ todos: db.get('todos') });
+})
 
 /** Start */
 app.listen(3000, '0.0.0.0');

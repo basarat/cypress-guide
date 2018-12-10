@@ -5,6 +5,7 @@ node_modules
 public/build
 public/index.html
 lib/
+db.json
 
 # IDE
 .alm
