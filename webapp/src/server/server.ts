@@ -1,7 +1,7 @@
 import express from 'express';
 import low from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
-import { TodoItem } from './common/types';
+import { TodoItem } from '../common/types';
 
 /** 
  * Setup db 
