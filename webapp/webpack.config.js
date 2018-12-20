@@ -6,7 +6,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['public/build']),
     new HtmlWebpackPlugin({
-      template: 'src/templates/index.html'
+      template: 'templates/index.html'
     }),
   ],
   output: {
