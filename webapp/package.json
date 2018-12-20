@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm -rf ./node_modules package-lock.json && npm install",
     "build:webpack": "webpack -p",
-    "build:server": "tsc -p ./server.tsconfig.json",
+    "build:server": "tsc -p ./tsconfig.server.json",
     "build": "npm run build:webpack && npm run build:server",
     "start:webpack": "webpack-dev-server -d --content-base ./public",
     "start:server": "ts-node-dev src/server.ts",
