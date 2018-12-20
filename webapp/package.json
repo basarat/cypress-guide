@@ -8,13 +8,13 @@
   },
   "scripts": {
     "clean": "rm -rf ./node_modules package-lock.json && npm install",
-    "build:webpack": "webpack -p",
-    "build:server": "tsc -p ./tsconfig.server.json",
     "build:check": "tsc -p .",
-    "build": "npm run build:check && npm run build:webpack && npm run build:server",
-    "start:webpack": "webpack-dev-server -d --content-base ./public",
+    "build:server": "tsc -p ./tsconfig.server.json",
+    "build:webpack": "webpack -p",
+    "build": "npm run build:check && npm run build:server && npm run build:webpack",
     "start:server": "ts-node-dev src/server.ts",
-    "start": "concurrently \"npm run start:webpack\" \"npm run start:server\""
+    "start:webpack": "webpack-dev-server -d --content-base ./public",
+    "start": "concurrently \"npm run start:server\" \"npm run start:webpack\""
   },
   "dependencies": {
     "@types/express": "4.16.0",
