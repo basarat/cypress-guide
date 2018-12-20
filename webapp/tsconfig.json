@@ -1,5 +1,10 @@
 {
+  "include": [
+    "src"
+  ],
+  "compileOnSave": false,
   "compilerOptions": {
+    "noEmit": true,
     "sourceMap": true,
     "module": "commonjs",
     "esModuleInterop": true,
@@ -10,11 +15,6 @@
     "lib": [
       "dom",
       "es6"
-    ],
-    "noEmit": true
-  },
-  "include": [
-    "src"
-  ],
-  "compileOnSave": false
+    ]
+  }
 }
