@@ -414,6 +414,7 @@ export const classNames = {
 	/** root:footer */
 	footer: 'footer',
 	todoCount: 'todo-count',
+	clearCompleted: 'clear-completed',
 
 	/** root:footer:filters */
 	filters: 'filters',
