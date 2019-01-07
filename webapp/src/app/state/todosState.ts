@@ -36,4 +36,16 @@ export class TodosState {
     const { todos } = await getAll();
     this.items = todos;
   }
+
+  @action 
+  async toggle(item: TodoItem) {
+    item.completed = !item.completed;
+    /** TODO: send to server */
+  }
+
+  @action
+  async destroy(item: TodoItem) {
+    this.items = this.items.filter(i => i.id !== item.id);
+    /** TODO: send to server */
+  }
 }

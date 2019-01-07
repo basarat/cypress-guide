@@ -48,10 +48,15 @@ export const Main: React.SFC<{}> = observer(() => {
           return (
             <li key={item.id} className={item.completed ? classNames.completed : ''}>
               <div className={classNames.view}>
-                <input className={classNames.toggle} type="checkbox" checked={true} />
+                <input className={classNames.toggle} type="checkbox"
+                  checked={item.completed}
+                  onChange={() => appState.todos.toggle(item)}
+                />
                 <label>{item.message}</label>
-                <button className={classNames.destroy} />
+                <button className={classNames.destroy}
+                  onClick={() => appState.todos.destroy(item)} />
               </div>
+              <input className={classNames.edit} />
             </li>
           );
         })}
