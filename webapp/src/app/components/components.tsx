@@ -69,6 +69,9 @@ export const Main: React.SFC<{}> = observer(() => {
                     if (e.keyCode == 13) {
                       appState.submitEditing();
                     }
+                    else if (e.keyCode == 27) {
+                      appState.cancelEditing();
+                    }
                   }}
                   autoFocus={true}
                 />
