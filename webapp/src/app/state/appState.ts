@@ -65,6 +65,12 @@ class AppState {
     /** TODO: send to server */
   }
 
+  @action
+  clearCompleted(): void {
+    this.items = this.items.filter(i => i.completed == false);
+    /** TODO: send to server */
+  }
+
   @observable
   editingId: string | null = null;
   @observable

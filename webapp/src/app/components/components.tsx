@@ -97,7 +97,10 @@ export const Footer: React.SFC<{}> = observer(() => {
           <a className={routerState.route == 'completed' ? classNames.selected : ''} href={link(routes.completed)}>Completed</a>
         </li>
       </ul>
-      {appState.todoCount > 0 && <button className={classNames.clearCompleted}>Clear completed</button>}
+      {
+        appState.todoCount > 0 &&
+        <button className={classNames.clearCompleted} onClick={() => appState.clearCompleted()}>Clear completed</button>
+      }
     </footer>
   );
 });
