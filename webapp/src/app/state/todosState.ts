@@ -12,6 +12,9 @@ export class TodosState {
   items: TodoItem[] = [];
 
   @observable
+  editingId: string | null = null;
+
+  @observable
   current = new FieldState('');
 
   @computed
@@ -37,7 +40,7 @@ export class TodosState {
     this.items = todos;
   }
 
-  @action 
+  @action
   async toggle(item: TodoItem) {
     item.completed = !item.completed;
     /** TODO: send to server */
@@ -47,5 +50,15 @@ export class TodosState {
   async destroy(item: TodoItem) {
     this.items = this.items.filter(i => i.id !== item.id);
     /** TODO: send to server */
+  }
+
+  @action
+  setEditing(item: TodoItem) {
+    this.editingId = item.id;
+  }
+
+  @action
+  clearEditing() {
+    this.editingId = null;
   }
 }

@@ -46,13 +46,18 @@ export const Main: React.SFC<{}> = observer(() => {
       <ul className={classNames.todoList}>
         {appState.todos.items.map(item => {
           return (
-            <li key={item.id} className={item.completed ? classNames.completed : ''}>
+            <li key={item.id} className={
+              item.id == appState.todos.editingId
+                ? classNames.editing
+                : item.completed
+                  ? classNames.completed : ''
+            }>
               <div className={classNames.view}>
                 <input className={classNames.toggle} type="checkbox"
                   checked={item.completed}
                   onChange={() => appState.todos.toggle(item)}
                 />
-                <label>{item.message}</label>
+                <label onDoubleClick={() => appState.todos.setEditing(item)}>{item.message}</label>
                 <button className={classNames.destroy}
                   onClick={() => appState.todos.destroy(item)} />
               </div>

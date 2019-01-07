@@ -405,6 +405,7 @@ export const classNames = {
 	toggleAll: 'toggle-all',
 	todoList: 'todo-list',
 	completed: 'completed',
+	editing: 'editing',
 	view: 'view',
 	toggle: 'toggle',
 	destroy: 'destroy',
