@@ -9,8 +9,8 @@ export const App: React.SFC<{}> = observer((props) => {
     <>
       <section className={classNames.app}>
         <Header />
-        {appState.todos.hasTodos && <Main />}
-        {appState.todos.hasTodos && <Footer />}
+        {appState.hasTodos && <Main />}
+        {appState.hasTodos && <Footer />}
       </section>
       <Info />
     </>
@@ -19,13 +19,13 @@ export const App: React.SFC<{}> = observer((props) => {
 
 export const Header: React.SFC<{
 }> = observer(() => {
-  const fieldState = appState.todos.current;
+  const fieldState = appState.current;
 
   return (<header className={classNames.header}>
     <h1>todos</h1>
     <form onSubmit={(e) => {
       e.preventDefault();
-      appState.todos.addCurrentItem();
+      appState.addCurrentItem();
     }}>
       <input
         className={classNames.newTodo}
@@ -44,10 +44,10 @@ export const Main: React.SFC<{}> = observer(() => {
       <input id={classNames.toggleAll} className={classNames.toggleAll} type="checkbox" />
       <label htmlFor={classNames.toggleAll}>Mark all as complete</label>
       <ul className={classNames.todoList}>
-        {appState.todos.items.map(item => {
+        {appState.items.map(item => {
           return (
             <li key={item.id} className={
-              item.id == appState.todos.editingId
+              item.id == appState.editingId
                 ? classNames.editing
                 : item.completed
                   ? classNames.completed : ''
@@ -55,11 +55,11 @@ export const Main: React.SFC<{}> = observer(() => {
               <div className={classNames.view}>
                 <input className={classNames.toggle} type="checkbox"
                   checked={item.completed}
-                  onChange={() => appState.todos.toggle(item)}
+                  onChange={() => appState.toggle(item)}
                 />
-                <label onDoubleClick={() => appState.todos.setEditing(item)}>{item.message}</label>
+                <label onDoubleClick={() => appState.setEditing(item)}>{item.message}</label>
                 <button className={classNames.destroy}
-                  onClick={() => appState.todos.destroy(item)} />
+                  onClick={() => appState.destroy(item)} />
               </div>
               <input className={classNames.edit} />
             </li>
