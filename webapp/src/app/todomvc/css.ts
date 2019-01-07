@@ -407,7 +407,7 @@ export const classNames = {
 	completed: 'completed',
 	view: 'view',
 	toggle: 'toggle',
-	destry: 'destroy',
+	destroy: 'destroy',
 	edit: 'edit',
 
 	/** root:footer */

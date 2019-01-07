@@ -43,9 +43,18 @@ export const Main: React.SFC<{}> = observer(() => {
     <section className={classNames.main}>
       <input id={classNames.toggleAll} className={classNames.toggleAll} type="checkbox" />
       <label htmlFor={classNames.toggleAll}>Mark all as complete</label>
-      <ul className={classNames.main}>
-        <li className={classNames.completed}>
-        </li>
+      <ul className={classNames.todoList}>
+        {appState.todos.items.map(item => {
+          return (
+            <li key={item.id} className={item.completed ? classNames.completed : ''}>
+              <div className={classNames.view}>
+                <input className={classNames.toggle} type="checkbox" checked={true} />
+                <label>{item.message}</label>
+                <button className={classNames.destroy} />
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
