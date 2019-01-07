@@ -24,7 +24,6 @@
     "axios": "0.18.0",
     "clean-webpack-plugin": "1.0.0",
     "concurrently": "4.1.0",
-    "csstips": "0.3.0",
     "formstate": "1.0.2",
     "html-webpack-plugin": "3.2.0",
     "lowdb": "1.0.0",
