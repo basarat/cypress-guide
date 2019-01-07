@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { FieldState } from 'formstate';
 import { classNames } from '../todomvc/css';
 import { appState } from '../state/appState';
+import { routerState, link, routes } from '../service/routing';
 
 export const App: React.SFC<{}> = observer((props) => {
   return (
@@ -73,6 +74,7 @@ export const Main: React.SFC<{}> = observer(() => {
                       appState.cancelEditing();
                     }
                   }}
+                  onBlur={() => appState.cancelEditing()}
                   autoFocus={true}
                 />
               }
@@ -88,6 +90,13 @@ export const Footer: React.SFC<{}> = observer(() => {
   return (
     <footer className={classNames.footer}>
       <span className={classNames.todoCount}><strong>{appState.todoCount}</strong> {appState.todoCount == 1 ? 'item' : 'items'} left</span>
+      <ul className={classNames.filters}>
+        <li>
+          <a className={routerState.route == 'all' ? classNames.selected : ''} href={link(routes.all)}>All</a>
+          <a className={routerState.route == 'active' ? classNames.selected : ''} href={link(routes.active)}>Active</a>
+          <a className={routerState.route == 'completed' ? classNames.selected : ''} href={link(routes.completed)}>Completed</a>
+        </li>
+      </ul>
       {appState.todoCount > 0 && <button className={classNames.clearCompleted}>Clear completed</button>}
     </footer>
   );
