@@ -23,13 +23,18 @@ export const Header: React.SFC<{
 
   return (<header className={classNames.header}>
     <h1>todos</h1>
-    <input
-      className={classNames.newTodo}
-      autoFocus={true}
-      placeholder="What needs to be done?"
-      value={fieldState.value}
-      onChange={(e) => fieldState.onChange(e.target.value)}
-    />
+    <form onSubmit={(e) => {
+      e.preventDefault();
+      appState.todos.addCurrentItem();
+    }}>
+      <input
+        className={classNames.newTodo}
+        autoFocus={true}
+        placeholder="What needs to be done?"
+        value={fieldState.value}
+        onChange={(e) => fieldState.onChange(e.target.value)}
+      />
+    </form>
   </header>);
 });
 

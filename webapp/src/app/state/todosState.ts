@@ -1,7 +1,10 @@
 import { observable, action, computed } from 'mobx';
 import { FieldState } from 'formstate';
 import { TodoItem } from '../../common/types';
-import { addItem, getAllItems } from '../service/todoService';
+import { getAllItems } from '../service/todoService';
+
+/** TODO: wire todo service */
+let mock = 0;
 
 export class TodosState {
   @observable
@@ -18,7 +21,12 @@ export class TodosState {
   @action
   async addCurrentItem() {
     if (this.current.value.trim() === '') return;
-    addItem(this.current.$);
+    this.items.push({
+      id: (mock++).toString(),
+      completed: false,
+      message: this.current.value
+    });
+    this.current.onChange('');
   }
 
   @action
