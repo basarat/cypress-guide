@@ -6,15 +6,21 @@ import { appState } from '../state/appState';
 
 export const App: React.SFC<{}> = observer((props) => {
   return (
-    <section className={classNames.app}>
-      <Header fieldState={appState.todos.current} />
-    </section>
+    <>
+      <section className={classNames.app}>
+        <Header />
+        <Main />
+        <Footer />
+      </section>
+      <Info />
+    </>
   );
 });
 
 export const Header: React.SFC<{
-  fieldState: FieldState<string>
-}> = observer(({ fieldState }) => {
+}> = observer(() => {
+  const fieldState = appState.todos.current;
+
   return (<header className={classNames.header}>
     <h1>todos</h1>
     <input
@@ -27,3 +33,28 @@ export const Header: React.SFC<{
   </header>);
 });
 
+export const Main: React.SFC<{}> = observer(() => {
+  return (
+    <section className={classNames.main}>
+      <input id={classNames.toggleAll} className={classNames.toggleAll} type="checkbox" />
+      <label htmlFor={classNames.toggleAll}>Mark all as complete</label>
+    </section>
+  );
+});
+
+export const Footer: React.SFC<{}> = observer(() => {
+  return (
+    <footer className={classNames.footer}>
+
+    </footer>
+  );
+});
+
+export const Info = () => {
+  return (
+    <footer className={classNames.info}>
+      <p>Double-click to edit a todo</p>
+      <p>Created by <a href="http://basarat.com">@basarat</a></p>
+    </footer>
+  );
+}

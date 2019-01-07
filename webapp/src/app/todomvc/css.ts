@@ -387,6 +387,11 @@ html .clear-completed:active {
    `);
 }
 
+
+/** 
+ * Provided by the css above 
+ * Relevant html in https://github.com/tastejs/todomvc-app-template/blob/master/index.html
+ */
 export const classNames = {
 	/** root */
 	app: 'todoapp',
