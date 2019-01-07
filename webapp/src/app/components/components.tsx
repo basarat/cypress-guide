@@ -9,8 +9,8 @@ export const App: React.SFC<{}> = observer((props) => {
     <>
       <section className={classNames.app}>
         <Header />
-        <Main />
-        <Footer />
+        {appState.todos.hasTodos && <Main />}
+        {appState.todos.hasTodos && <Footer />}
       </section>
       <Info />
     </>
@@ -38,6 +38,10 @@ export const Main: React.SFC<{}> = observer(() => {
     <section className={classNames.main}>
       <input id={classNames.toggleAll} className={classNames.toggleAll} type="checkbox" />
       <label htmlFor={classNames.toggleAll}>Mark all as complete</label>
+      <ul className={classNames.main}>
+        <li className={classNames.completed}>
+        </li>
+      </ul>
     </section>
   );
 });

@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
 import { FieldState } from 'formstate';
 import { TodoItem } from '../../common/types';
 import { addItem, getAllItems } from '../service/todoService';
@@ -9,6 +9,11 @@ export class TodosState {
 
   @observable
   current = new FieldState('');
+
+  @computed
+  get hasTodos() {
+    return this.items.length !== 0;
+  }
 
   @action
   async addCurrentItem() {
