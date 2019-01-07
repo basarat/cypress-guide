@@ -87,7 +87,7 @@ export const Main: React.SFC<{}> = observer(() => {
 export const Footer: React.SFC<{}> = observer(() => {
   return (
     <footer className={classNames.footer}>
-
+      <span className={classNames.todoCount}><strong>{appState.todoCount}</strong> {appState.todoCount == 1 ? 'item' : 'items'} left</span>
     </footer>
   );
 });

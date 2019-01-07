@@ -20,6 +20,11 @@ class AppState {
     return this.items.length !== 0;
   }
 
+  @computed
+  get todoCount() {
+    return this.items.filter(i => i.completed == false).length;
+  }
+
   @action
   async addCurrentItem() {
     if (this.current.value.trim() === '') return;
@@ -67,7 +72,7 @@ class AppState {
     this.editingTodoMessage = null;
   }
 
-  @action 
+  @action
   async submitEditing() {
     const todo = this.items.find(i => i.id === this.editingId);
     todo.message = this.editingTodoMessage.value;
