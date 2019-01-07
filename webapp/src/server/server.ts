@@ -3,7 +3,7 @@ import cors from 'cors';
 import low from 'lowdb';
 import uuid from 'uuid/v4';
 import FileSync from 'lowdb/adapters/FileSync';
-import { TodoItem } from '../common/types';
+import { TodoItem, API } from '../common/types';
 
 /** 
  * Setup db 
@@ -28,7 +28,7 @@ api.use(cors(), express.json());
 api.get('/all', (_, res) => {
   res.send({ todos: db.get('items') });
 });
-api.post('/add', (req, res) => {
+api.post(API.add.endpoint, (req, res: express.Response) => {
   const id = uuid();
   db.get('items')
     .push({

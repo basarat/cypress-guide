@@ -1,15 +1,15 @@
 import axios from 'axios';
-import { TodoItem } from '../../common/types';
+import { TodoItem, API } from '../../common/types';
 
-export const apiEndpoint = 'http://localhost:3000/api';
+export const apiRoot = 'http://localhost:3000/api';
 
-export const addItem = (message: string) => {
+export const add = (body: API.add.Request) => {
   return axios
-    .post<{ id: string }>(apiEndpoint + '/add', { message })
+    .post<API.add.Response>(apiRoot + API.add.endpoint, body)
     .then(res => res.data);
 }
 
-export const getAllItems = () => {
-  return axios.get<{ items: TodoItem[] }>(apiEndpoint + '/all')
+export const getAll = () => {
+  return axios.get<{ todos: TodoItem[] }>(apiRoot + '/all')
     .then(res => res.data);
 }

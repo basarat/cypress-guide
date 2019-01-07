@@ -1,9 +1,13 @@
 import { observable, action, computed } from 'mobx';
 import { FieldState } from 'formstate';
 import { TodoItem } from '../../common/types';
-import { getAllItems, addItem } from '../service/todoService';
+import { getAll, add } from '../service/todoService';
 
 export class TodosState {
+  constructor() {
+    this.loadItems();
+  }
+
   @observable
   items: TodoItem[] = [];
 
@@ -18,7 +22,7 @@ export class TodosState {
   @action
   async addCurrentItem() {
     if (this.current.value.trim() === '') return;
-    const { id } = await addItem(this.current.value);
+    const { id } = await add({ message: this.current.value });
     this.items.push({
       id,
       completed: false,
@@ -29,7 +33,7 @@ export class TodosState {
 
   @action
   async loadItems() {
-    const { items } = await getAllItems();
-    this.items = items;
+    const { todos } = await getAll();
+    this.items = todos;
   }
 }
