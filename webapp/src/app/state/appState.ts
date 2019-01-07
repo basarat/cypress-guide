@@ -13,9 +13,6 @@ class AppState {
   items: TodoItem[] = [];
 
   @observable
-  editingId: string | null = null;
-
-  @observable
   current = new FieldState('');
 
   @computed
@@ -53,14 +50,29 @@ class AppState {
     /** TODO: send to server */
   }
 
+  @observable
+  editingId: string | null = null;
+  @observable
+  editingTodoMessage: null | FieldState<string> = null;
+
   @action
   setEditing(item: TodoItem) {
     this.editingId = item.id;
+    this.editingTodoMessage = new FieldState(item.message);
   }
 
   @action
-  clearEditing() {
+  cancelEditing() {
     this.editingId = null;
+    this.editingTodoMessage = null;
+  }
+
+  @action 
+  async submitEditing() {
+    const todo = this.items.find(i => i.id === this.editingId);
+    todo.message = this.editingTodoMessage.value;
+    /** TODO: send to server */
+    this.cancelEditing();
   }
 }
 

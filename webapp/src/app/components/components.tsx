@@ -61,7 +61,18 @@ export const Main: React.SFC<{}> = observer(() => {
                 <button className={classNames.destroy}
                   onClick={() => appState.destroy(item)} />
               </div>
-              <input className={classNames.edit} />
+              {!!appState.editingTodoMessage &&
+                <input className={classNames.edit}
+                  value={appState.editingTodoMessage.value}
+                  onChange={(e) => appState.editingTodoMessage.onChange(e.target.value)}
+                  onKeyDown={e => {
+                    if (e.keyCode == 13) {
+                      appState.submitEditing();
+                    }
+                  }}
+                  autoFocus={true}
+                />
+              }
             </li>
           );
         })}
