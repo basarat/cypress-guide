@@ -1,19 +1,20 @@
 import * as React from 'react';
+import { observer } from 'mobx-react';
 import { FieldState } from 'formstate';
 import { classNames } from '../todomvc/css';
 import { appState } from '../state/appState';
 
-export const App: React.SFC<{}> = (props) => {
+export const App: React.SFC<{}> = observer((props) => {
   return (
     <section className={classNames.app}>
       <Header fieldState={appState.todos.current} />
     </section>
   );
-}
+});
 
 export const Header: React.SFC<{
   fieldState: FieldState<string>
-}> = ({ fieldState }) => {
+}> = observer(({ fieldState }) => {
   return (<header className={classNames.header}>
     <h1>todos</h1>
     <input
@@ -24,4 +25,5 @@ export const Header: React.SFC<{
       onChange={(e) => fieldState.onChange(e.target.value)}
     />
   </header>);
-}
+});
+
