@@ -44,7 +44,7 @@ export const Main: React.SFC<{}> = observer(() => {
       <input id={classNames.toggleAll} className={classNames.toggleAll} type="checkbox" />
       <label htmlFor={classNames.toggleAll}>Mark all as complete</label>
       <ul className={classNames.todoList}>
-        {appState.items.map(item => {
+        {appState.visibleList.map(item => {
           return (
             <li key={item.id} className={
               item.id == appState.editingId

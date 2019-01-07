@@ -2,6 +2,7 @@ import { observable, action, computed } from 'mobx';
 import { FieldState } from 'formstate';
 import { TodoItem } from '../../common/types';
 import { getAll, add } from '../service/todoService';
+import { routerState } from '../service/routing';
 
 
 class AppState {
@@ -23,6 +24,15 @@ class AppState {
   @computed
   get todoCount() {
     return this.items.filter(i => i.completed == false).length;
+  }
+
+  @computed
+  get visibleList() {
+    return routerState.route == 'all'
+      ? this.items
+      : routerState.route == 'active'
+        ? this.items.filter(i => i.completed == false)
+        : this.items.filter(i => i.completed == true)
   }
 
   @action
