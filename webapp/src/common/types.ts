@@ -15,9 +15,17 @@ export namespace API {
       id: string
     }
   }
+  
   export namespace getAll {
-    export const endpoint = '/all';
+    export const endpoint = '/get-all';
     export type Response = {
+      todos: TodoItem[]
+    }
+  }
+
+  export namespace setAll {
+    export const endpoint = '/set-all';
+    export type Request = {
       todos: TodoItem[]
     }
   }
