@@ -13,3 +13,8 @@ export const getAll = () => {
   return axios.get<API.getAll.Response>(apiRoot + API.getAll.endpoint)
     .then(res => res.data);
 }
+
+export const setAll = (body: API.setAll.Request) => {
+  return axios.put<{}>(apiRoot + API.setAll.endpoint, body)
+    .then(res => res.data);
+}

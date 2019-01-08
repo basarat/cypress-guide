@@ -1,7 +1,7 @@
 import { observable, action, computed } from 'mobx';
 import { FieldState } from 'formstate';
 import { TodoItem } from '../../common/types';
-import { getAll, create } from '../service/todoService';
+import { getAll, create, setAll } from '../service/todoService';
 import { routerState } from '../service/routing';
 
 
@@ -56,19 +56,19 @@ class AppState {
   @action
   async toggle(item: TodoItem) {
     item.completed = !item.completed;
-    /** TODO: send to server */
+    setAll({ todos: this.items });
   }
 
   @action
   async destroy(item: TodoItem) {
     this.items = this.items.filter(i => i.id !== item.id);
-    /** TODO: send to server */
+    setAll({ todos: this.items });
   }
 
   @action
   clearCompleted(): void {
     this.items = this.items.filter(i => i.completed == false);
-    /** TODO: send to server */
+    setAll({ todos: this.items });
   }
 
   @observable
@@ -92,7 +92,7 @@ class AppState {
   async submitEditing() {
     const todo = this.items.find(i => i.id === this.editingId);
     todo.message = this.editingTodoMessage.value;
-    /** TODO: send to server */
+    setAll({ todos: this.items });
     this.cancelEditing();
   }
 }
