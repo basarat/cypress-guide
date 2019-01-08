@@ -28,7 +28,7 @@ api.use(cors(), express.json());
 api.get('/all', (_, res) => {
   res.send({ todos: db.get('items') });
 });
-api.post(API.add.endpoint, (req, res: express.Response) => {
+api.post(API.create.endpoint, (req, res: express.Response) => {
   const id = uuid();
   db.get('items')
     .push({

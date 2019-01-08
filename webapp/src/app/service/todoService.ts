@@ -3,13 +3,13 @@ import { TodoItem, API } from '../../common/types';
 
 export const apiRoot = 'http://localhost:3000/api';
 
-export const add = (body: API.add.Request) => {
+export const create = (body: API.create.Request) => {
   return axios
-    .post<API.add.Response>(apiRoot + API.add.endpoint, body)
+    .post<API.create.Response>(apiRoot + API.create.endpoint, body)
     .then(res => res.data);
 }
 
 export const getAll = () => {
-  return axios.get<{ todos: TodoItem[] }>(apiRoot + '/all')
+  return axios.get<API.getAll.Response>(apiRoot + API.getAll.endpoint)
     .then(res => res.data);
 }

@@ -1,7 +1,7 @@
 import { observable, action, computed } from 'mobx';
 import { FieldState } from 'formstate';
 import { TodoItem } from '../../common/types';
-import { getAll, add } from '../service/todoService';
+import { getAll, create } from '../service/todoService';
 import { routerState } from '../service/routing';
 
 
@@ -38,7 +38,7 @@ class AppState {
   @action
   async addCurrentItem() {
     if (this.current.value.trim() === '') return;
-    const { id } = await add({ message: this.current.value });
+    const { id } = await create({ message: this.current.value });
     this.items.push({
       id,
       completed: false,

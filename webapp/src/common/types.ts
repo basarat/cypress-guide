@@ -6,13 +6,19 @@ export type TodoItem = {
 
 
 export namespace API {
-  export namespace add {
+  export namespace create {
     export const endpoint = '/add';
     export type Request = {
       message: string
     }
     export type Response = {
       id: string
+    }
+  }
+  export namespace getAll {
+    export const endpoint = '/all';
+    export type Response = {
+      todos: TodoItem[]
     }
   }
 }
