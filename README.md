@@ -1,4 +1,7 @@
 # Maintainable web application testing with cypress
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/basarat/cypress-guide.svg)](https://greenkeeper.io/)
+
 > Testing how it should be
 
 Docs / Code to an accompanying video course on cypress web application testing.
